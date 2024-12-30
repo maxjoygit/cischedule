@@ -1,23 +1,14 @@
 # .cirrus.yml
 
 task:
-  cron_job:
-    cron: '* * * * *'  # Cron schedule (every Monday at 3 AM UTC)
-    jobs:
-      - build  # Specify the job to run on this schedule
-
-# Define your jobs
-build:
-  container:
-    image: circleci/node:22.11.0
-  steps:
-    - checkout
-    - run:
-        name: Install dependencies
-        command: |
-          npm install  # Install project dependencies
-    - run:
-        name: Crawl websites
-        command: |
-          node src/app.js
-
+  build:
+    docker:
+      image: node:14  # Use the official Node.js Docker image (version 14)
+    steps:
+      - checkout  # Checkout the code from the GitHub repository
+      - run:
+          name: Install dependencies
+          command: npm install  # Install project dependencies
+      - run:
+          name: Run tests
+          command: npm test  # Run tests using npm
