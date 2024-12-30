@@ -4,7 +4,7 @@ jobs:
   # Job to install dependencies
   crawl_websites:
     docker:
-      - image: cimg/base:2024.05
+      - image: cimg/node:22.11.0
     steps:
       - checkout
       - run:
