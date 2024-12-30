@@ -21,7 +21,7 @@ workflows:
   scheduled_workflow:
     triggers:
       - schedule:
-          cron: "* * * * *" 
+          cron: "00 12 * * *" 
           filters:
             branches:
               only: main  # Run this only on the 'main' branch

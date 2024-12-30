@@ -1,0 +1,21 @@
+# .cirrus.yml
+
+task:
+  cron_job:
+    cron: '* * * * *'  # Cron schedule (every Monday at 3 AM UTC)
+    jobs:
+      - build  # Specify the job to run on this schedule
+
+# Define your jobs
+build:
+  docker:
+    image: circleci/python:3.8
+  steps:
+    - checkout
+    - run:
+        name: Install dependencies
+        command: pip install -r requirements.txt
+    - run:
+        name: Run tests
+        command: pytest
+
