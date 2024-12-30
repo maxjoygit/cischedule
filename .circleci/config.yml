@@ -2,7 +2,7 @@ version: 2.1
 
 jobs:
   # Job to install dependencies
-  install_dependencies:
+  crawl_websites:
     docker:
       - image: cimg/base:2024.05
     steps:
@@ -26,5 +26,4 @@ workflows:
             branches:
               only: main  # Run this only on the 'main' branch
     jobs:
-      - install_dependencies
-      - Crawl websites
+      - crawl_websites
