@@ -11,17 +11,9 @@ jobs:
           name: Install dependencies
           command: |
             npm install  # Install project dependencies
-
-  # Job to run tests
-  run_tests:
-    docker:
-      - image: cimg/base:2024.05
-    steps:
-      - checkout
-      - run:
-          name: Run tests
+          name: Crawl websites
           command: |
-            echo "hello"
+            node src/app.js
 
 workflows:
   version: 2
@@ -34,4 +26,4 @@ workflows:
               only: main  # Run this only on the 'main' branch
     jobs:
       - install_dependencies
-      - run_tests
+      - Crawl websites
