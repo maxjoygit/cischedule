@@ -11,6 +11,7 @@ jobs:
           name: Install dependencies
           command: |
             npm install  # Install project dependencies
+      - run:
           name: Crawl websites
           command: |
             node src/app.js
