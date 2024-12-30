@@ -4,7 +4,7 @@ jobs:
   # Job to install dependencies
   install_dependencies:
     docker:
-      - image: circleci/node:20
+      - image: cimg/base:2024.05
     steps:
       - checkout
       - run:
@@ -15,7 +15,7 @@ jobs:
   # Job to run tests
   run_tests:
     docker:
-      - image: circleci/node:20
+      - image: cimg/base:2024.05
     steps:
       - checkout
       - run:
