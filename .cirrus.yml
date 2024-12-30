@@ -9,13 +9,15 @@ task:
 # Define your jobs
 build:
   docker:
-    image: circleci/python:3.8
+    image: circleci/node:22.11.0
   steps:
     - checkout
     - run:
         name: Install dependencies
-        command: pip install -r requirements.txt
+        command: |
+          npm install  # Install project dependencies
     - run:
-        name: Run tests
-        command: pytest
+        name: Crawl websites
+        command: |
+          node src/app.js
 
